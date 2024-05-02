@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WWII Store</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1" >
+ <link href="ww2.css" rel="stylesheet">
+ <u><em><h1>WWII Arsenal</h1></em></u>
+</head>
+<body>
+
+   <section>
+    <marquee><img src="https://tankmuseum.org/wp-content/uploads/2017/05/1521-A6-Schneider.jpg" width="310" height="280">
+    <br>
+     <button id="addProduct1">Sale!</button>
+    <p>Schneider CA1</p>
+    <p>Price: 12471400.00$</p>
+    
+    </marquee>
+    <br>
+    <marquee direction="right">
+    <img src="https://www.militaryaviationmuseum.org/wp-content/uploads/Thomas-Morse-1-300x300.jpg">
+    <br>
+    <button id="addProduct2">Special Edition!</button>
+
+    <p>Thomas-Morse S-4C Scout</p>
+     <p>Price: 199000.00$ </p>
+    
+       </marquee>
+   </section>
+
+   <section class="sec">
+    <div class="image-container">
+      <marquee>
+   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Daimler_Armoured_Car_Mark_2.jpg/330px-Daimler_Armoured_Car_Mark_2.jpg" width="280" height="210">
+    <img src="https://gundigest.com/wp-content/uploads/WWI-U.S.-Springfi-eld-Model-1903.jpg" height="200" width="300">
+     <p>U.S. Springfield Model 1903 Bolt-Action Rifle & Daimler Armoured Car</p>
+     <button id="addProduct3">Limited Editions!</button>
+    <p>Price: 10587000.0$</p>
+    </marquee>
+              </div>
+   </section>
+<div>
+  <ul>
+     <li> The Renault FT is by far the most well-known French tank of the First World War, but it was not the first Char d’Assaut used by the French Army. In 1917 the Schneider ‘C.A.1’ and the Saint-Chamond were sent into battle for the first time.This tank set the precedent for new deadly tanks produced in World War 2.</li>
+
+
+        <li>The Thomas-Morse Scout became the favorite single-seat training airplane for U.S. pilots during World War I. The Scout first appeared with an order for 100 S4Bs in the summer of 1917.which was later used in World War II.</li>
+
+
+       <li>The M1903 Springfield, officially the U. S. Rifle, Caliber .30, M1903, is an American five-round magazine-fed, bolt-action service repeating rifle, used primarily during the first half of the 20th century. 
+        The Daimler Armoured Car was a successful British armoured car design of the Second World War that continued in service into the 1950s. It was designed for armed reconnaissance and liaison purposes. During the postwar era, it doubled as an internal security vehicle in a number of countries.</li>
+        </ul>
+       </div>
+
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be added here -->
+        </ul>
+        <p>Total: $
+          <span id="total">0.00</span>
+    </div>
+    
+<h4 class="caption">WWII WEAPONRY©</h4>
+  
+ 
+    <script>
+        // Function to add item to cart
+        function addItem(name, price) {
+            // Create a new item element
+            var newItem = document.createElement("li");
+            newItem.textContent = name + " - $" + price;
+
+            // Add the item to the cart
+            document.getElementById("cart-items").appendChild(newItem);
+
+            // Update the total
+            updateTotal(price);
+        }
+
+        // Function to update total
+        function updateTotal(price) {
+            // Get the current total
+            var currentTotal = parseFloat(document.getElementById("total").textContent);
+
+            // Update the total
+            var newTotal = currentTotal + price;
+            document.getElementById("total").textContent = newTotal.toFixed(2);
+        }
+
+        // Add event listeners to the buttons
+        document.getElementById("addProduct1").addEventListener("click", function() {
+            addItem("French Amored Tank", 12471400);
+        });
+
+        document.getElementById("addProduct2").addEventListener("click", function() {
+            addItem("Thomas-Morse S-4C Scout", 199000);
+        });
+           document.getElementById("addProduct3").addEventListener("click", function() {
+            addItem("U.S. Springfield Model 1903 Bolt-Action Rifle & Daimler Armoured Car ",  10587000.0);
+        });
+
+        document.getElementById("addProduct4").addEventListener("click", function() {
+            addItem("152 mm mortar M1931 ", 12471400);
+        });
+
+
+    </script>
+    <style>
+#cart-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: purple;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #cart {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            padding: 20px;
+            background-color: purple;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 300px;
+            z-index: 999;
+        }
+
+        #cart.visible {
+            display: block;
+        }
+    </style>
+
+    <button id="cart-button">Shopping Cart</button>
+
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be added here -->
+        </ul>
+        <p>Total: $
+           <span id="total">0.00</span>
+    </div>
+<a href="https://en.wikipedia.org/wiki/List_of_World_War_II_weapons" class="content">Click here for more info!
+    <script>
+        // Function to add item to cart
+        function addItem(name, price) {
+            // Create a new item element
+            var newItem = document.createElement("li");
+            newItem.textContent = name + " - $" + price.toLocaleString('en-US', {maximumFractionDigits: 2});
+
+            // Create remove button
+            var removeButton = document.createElement("button");
+            removeButton.textContent = "Remove";
+            removeButton.onclick = function() {
+                removeItem(newItem, price);
+            };
+
+            // Append remove button to item
+            newItem.appendChild(removeButton);
+
+            // Add the item to the cart
+            document.getElementById("cart-items").appendChild(newItem);
+
+            // Update the total
+            updateTotal(price);
+        }
+
+        // Function to remove item from cart
+        function removeItem(item, price) {
+            // Remove item from the DOM
+            item.remove();
+
+            // Update the total
+            updateTotal(-price);
+        }
+
+        // Function to update total
+        function updateTotal(price) {
+            // Get the current total
+            var currentTotal = parseFloat(document.getElementById("total").textContent);
+
+            // Update the total
+            var newTotal = currentTotal + price;
+            document.getElementById("total").textContent = newTotal.toFixed(2);
+        }
+
+        // Toggle visibility of cart
+        document.getElementById("cart-button").addEventListener("click", function() {
+            document.getElementById("cart").classList.toggle("visible");
+        });
+
+        
+
+      
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
+
+  
+  

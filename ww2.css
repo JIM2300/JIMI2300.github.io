@@ -1,0 +1,65 @@
+body {
+ background-color: #FFFFFF;
+  color: #000000;
+  font-family: sans-serif;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  size: 90%;
+}
+
+h1{
+  text-align: center;
+  font-style: TimesNewRoman;
+  color: purple;
+}
+
+button{
+ color: purple;
+ padding-bottom: 5px;
+  padding: 5px 15px;
+  font-size: 15px;
+ border-radius: 15px;
+}
+
+h5{
+   text-align: center;
+}
+
+img{
+ background-color: white;
+ color: white;
+}
+
+
+.image-container {
+    text-align: center; 
+    flex-direction: column;
+    /* Optional: Center images horizontally */
+  }
+
+  .image-container img {
+    display: inline-block;
+  }
+  
+  .caption {
+    text-align: center; /* Center the caption text */
+    padding-left: 7px;
+  }
+
+   .images-container {
+      display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: absolute;
+        top: 40%;
+        left: 55%;
+        transform: translate(-50%, -50%);
+  }
+  
+  .content {
+     text-align: center;
+     padding-left:  590px;
+  }
+
